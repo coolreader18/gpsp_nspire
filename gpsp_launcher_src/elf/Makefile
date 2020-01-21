@@ -10,6 +10,9 @@ OBJS = run.o elf_header.o elf_section.o elf_string.o elf_reloc.o elf_load.o
 DISTDIR = .
 vpath %.tns $(DISTDIR)
 
+GENZEHN = genzehn
+ZEHNFLAGS = --name gpsp_launcher
+
 all: gpsp_launcher.tns
 
 %.o: %.c
@@ -21,7 +24,9 @@ all: gpsp_launcher.tns
 gpsp_launcher.tns: $(OBJS)
 	$(LD) $(LDFLAGS) $^ -o $(@:.tns=.elf)
 	@mkdir -p $(DISTDIR)
-	$(OBJCOPY) -O binary $(@:.tns=.elf) $(DISTDIR)/$@
+	$(GENZEHN) --input $(@:.tns=.elf) --output $(DISTDIR)/_$@ $(ZEHNFLAGS)
+	make-prg $(DISTDIR)/_$@ $(DISTDIR)/$@
+	@rm $(DISTDIR)/_$@	
 
 clean:
 	rm -f *.o *.elf
