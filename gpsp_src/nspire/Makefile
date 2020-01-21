@@ -2,7 +2,7 @@
 # Gilead Kutnick - Exophase
 # TI-Nspire port - calc84maniac
 
-GCC = nspire-gcc-global
+GCC = nspire-gcc
 LD = nspire-ld
 VPATH += ..
 GCCFLAGS = -O3 -Wfatal-errors -W -std=c99 -msoft-float -funsigned-char -DNSPIRE_BUILD -DARM_ARCH

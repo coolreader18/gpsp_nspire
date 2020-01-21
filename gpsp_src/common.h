@@ -28,7 +28,13 @@
 
 #ifdef NSPIRE_BUILD
   #include <os.h>
-  #include <common.h>
+  #include <stddef.h>
+  #include <stdint.h>
+  #include <stdlib.h>
+  #include <stdarg.h>
+  #include <dirent.h>
+  #include <libndls.h>
+  #include <zlib.h>
 #else
 #ifdef _WIN32_WCE
   #include <windows.h>

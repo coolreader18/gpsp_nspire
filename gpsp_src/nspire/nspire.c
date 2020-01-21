@@ -95,11 +95,6 @@ int warm_cache_op_range(int op, void *addr, unsigned long size)
 	return -1;
 }
 
-void time(time_t* result)
-{
-	*result = GetRTC();
-}
-
 unsigned months[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 struct tm* localtime(const time_t* input_time)
